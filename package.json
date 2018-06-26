@@ -1,0 +1,19 @@
+{
+  "name": "testcli",
+  "version": "1.0.0",
+  "description": "testing nodejs cli",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "zf",
+  "license": "ISC",
+  "bin": {
+    "testcli": "./bin/index.js"
+  },
+  "dependencies": {
+    "chalk": "^2.4.1",
+    "commander": "^2.15.1",
+    "inquirer": "^6.0.0"
+  }
+}
