@@ -9,11 +9,12 @@
   "author": "zf",
   "license": "ISC",
   "bin": {
-    "testcli": "./bin/index.js"
+    "testcli": "./index.js"
   },
   "dependencies": {
     "chalk": "^2.4.1",
     "commander": "^2.15.1",
+    "figlet": "^1.2.0",
     "inquirer": "^6.0.0"
   }
 }

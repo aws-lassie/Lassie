@@ -9,7 +9,7 @@ const createLFQs = [
     {
         type : 'checkbox',
         name : 'region',
-        message : 'Select Region', 
+        message : chalk.yellow('Select Region'), 
         choices: 
         [
             new inquirer.Separator(chalk.cyanBright.bold('*** US Region ***')),
@@ -97,27 +97,29 @@ const createLFQs = [
     {
         type : 'input',
         name : 'functionName',
-        message : 'Enter the Lambda function name'
+        message : chalk.yellow('Enter the Lambda function name')
     },
     {
         type : 'input',
         name : 'zipFileLocation',
-        message: 'Input full directory for zipped fileb://'
+        message: chalk.yellow('Input full directory for zipped starting with fileb://') + '\n' + 
+                'Example: cd: file/file.js.' + '\n' +
+                 chalk.red('Input: fileb://file/file.js.zip')
     },
     {
         type : 'input',
         name : 'roleARN',
-        message : 'Enter the role ARN associated'
+        message : chalk.yellow('Enter the role ARN associated')
     },
     {
         type : 'input',
         name : 'handlerName',
-        message : 'Enter the function handler name'
+        message : chalk.yellow('Enter the function handler name')
     },
     {
         type : 'checkbox',
         name : 'nodeEnvironment',
-        message : 'Select a Node Env: ',
+        message : chalk.yellow('Select a Node Env.'),
         choices: 
         [
             new inquirer.Separator(chalk.cyanBright.bold('*** Callbacks ***')),
@@ -135,38 +137,9 @@ const createLFQs = [
     {
         type : 'input',
         name : 'profileName',
-        message : 'Enter profile name'
+        message : chalk.yellow('Enter profile name')
     }
 ]
 
-
-// const inputs = program.args;
-
-// const createLF = `aws lambda create-function \
-// --region ${region} \
-// --function-name ${functionName} \
-// --zip-file ${zipFileLocation} \
-// --role ${roleARN} \
-// --handler ${handlerName} \
-// --runtime ${nodeEnvironment} \
-// --profile ${profileName}`;
-
-
-// const execCallback = (error, stdout, stderr) => {
-//     if (error) console.log('exec error: ', error);
-//     if (stdout) console.log('Result: ', stdout);
-//     if (stderr) console.log('shell error: ', stderr);
-//   };
-
-// exec(answers, execCallback);
-
-// aws lambda create-function \
-// > --region us-east-1 \
-// > --function-name simpleTest \
-// > --zip-file fileb://Codesmith/Project_Weeks/Lassie/simpleTest/simpleTest.js.zip \
-// > --role arn:aws:iam::746635002189:role/simpleTest1234 \
-// > --handler simpleTest.handler \
-// > --runtime nodejs6.10 \
-// > --profile default
 
 module.exports = ('createLFQs', createLFQs);
