@@ -8,6 +8,9 @@
     "build": "webpack --mode production",
     "start-dev": "nodemon ./server/server.js"
   },
+  "bin": {
+    "testcli": "./index.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/rebeccaleff/Lassie.git"
