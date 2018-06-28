@@ -22,9 +22,10 @@ console.log('my input is : ', inputs);
 console.log('my input[0] is : ', inputs[0]);
 console.log('my input[1] is : ', inputs[1]);
 console.log('my input[2] is : ', inputs[2]);
+;
 
 const awsComd = `aws dynamodb create-table \
-    --table-name LassieLogs8 \
+    --table-name LassieLogs3 \
     --attribute-definitions \
         AttributeName=Id,AttributeType=N \
     --key-schema \

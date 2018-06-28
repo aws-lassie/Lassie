@@ -89,7 +89,7 @@ const createLFQs = [
         ],
         validate: function(answer) {
             if (answer.length !== 1) {
-                return 'Please choose a selection!'
+                return 'Please choose 1 selection!'
             }
             return true;
         }
@@ -104,7 +104,7 @@ const createLFQs = [
         name : 'zipFileLocation',
         message: chalk.yellow('Input full directory for zipped starting with fileb://') + '\n' + 
                 'Example: cd: file/file.js.' + '\n' +
-                 chalk.red('Input: fileb://file/file.js.zip')
+                 chalk.green('Input: fileb://file/file.js.zip')
     },
     {
         type : 'input',

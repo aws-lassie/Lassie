@@ -1,20 +1,47 @@
 {
-  "name": "testcli",
+  "name": "lassie",
   "version": "1.0.0",
-  "description": "testing nodejs cli",
+  "description": "AWS Lambda Function monitoring under Lassie's CLI",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode production",
+    "start-dev": "nodemon ./server/server.js"
   },
-  "author": "zf",
-  "license": "ISC",
   "bin": {
-    "testcli": "./index.js"
+    "lassie": "./bin/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aws-lassie/Lassie.git"
+  },
+  "keywords": [],
+  "author": "aws-lassie",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aws-lassie/Lassie/issues"
+  },
+  "homepage": "https://github.com/aws-lassie/Lassie/blob/master/README.md",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "html-webpack-plugin": "^3.2.0",
+    "webpack": "^4.12.2",
+    "webpack-cli": "^3.0.8"
   },
   "dependencies": {
+    "body-parser": "^1.18.3",
     "chalk": "^2.4.1",
+    "chalk-rainbow": "^1.0.0",
     "commander": "^2.15.1",
+    "express": "^4.16.3",
     "figlet": "^1.2.0",
-    "inquirer": "^6.0.0"
+    "inquirer": "^6.0.0",
+    "nodemon": "^1.17.5",
+    "path": "^0.12.7",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1"
   }
 }
