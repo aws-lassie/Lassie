@@ -1,5 +1,5 @@
 {
-  "name": "Lassie",
+  "name": "lassie",
   "version": "1.0.0",
   "description": "AWS Lambda Function monitoring under Lassie's CLI",
   "main": "index.js",
@@ -9,19 +9,19 @@
     "start-dev": "nodemon ./server/server.js"
   },
   "bin": {
-    "testcli": "./index.js"
+    "lassie": "./bin/index.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rebeccaleff/Lassie.git"
+    "url": "git+https://github.com/aws-lassie/Lassie.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "aws-lassie",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/rebeccaleff/Lassie/issues"
+    "url": "https://github.com/aws-lassie/Lassie/issues"
   },
-  "homepage": "https://github.com/rebeccaleff/Lassie#readme",
+  "homepage": "https://github.com/aws-lassie/Lassie/blob/master/README.md",
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
@@ -35,8 +35,12 @@
   },
   "dependencies": {
     "body-parser": "^1.18.3",
+    "chalk": "^2.4.1",
+    "chalk-rainbow": "^1.0.0",
     "commander": "^2.15.1",
     "express": "^4.16.3",
+    "figlet": "^1.2.0",
+    "inquirer": "^6.0.0",
     "nodemon": "^1.17.5",
     "path": "^0.12.7",
     "react": "^16.4.1",
