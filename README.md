@@ -1,11 +1,4 @@
 # Lassie
-   _                                _
-  | |     __ _     ___     ___     (_)     ___
-  | |__  / _` |   (_-<    (_-<     | |    / -_)
-  |____| \__,_|   /__/_   /__/_   _|_|_   \___|
-_|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""|
-"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'
-
 AWS Lambda function monitoring under Lassie's CLI.
 ## Getting Started
 
@@ -72,12 +65,17 @@ lassie user
 To create a Lambda function you will be walked through a prompt. 
 If there is an error in creating it will be displayed.
 ```
-lassie createLF
+lassie createLambda
 ```
 
 To check all current Lambda functions
 ```
-lassie list
+lassie listLambdas
+```
+
+To delete a Lambda function you need the name of the Lambda function
+```
+lassie deleteLambda
 ```
 
 ### Break down into end to end tests

@@ -102,8 +102,8 @@ const createLFQs = [
     {
         type : 'input',
         name : 'zipFileLocation',
-        message: chalk.yellowBright('Input full directory for zipped starting with fileb://') + '\n' + 
-                'Example: cd: file/file.js.' + '\n' +
+        message: chalk.yellowBright('Input full directory for zipped file starting with fileb://') + '\n' + 
+                'Example: cd: file/file.js.zip' + '\n' +
                  chalk.greenBright('Input: fileb://file/file.js.zip')
     },
     {
