@@ -11,7 +11,7 @@ const configUserQ = [
         type : 'input',
         name : 'profileName',
         default: 'default',
-        message : chalk.yellow('Enter profile name, if left blank default will be selected')
+        message : chalk.greenBright('Enter profile name, if left blank default will be selected')
     },
 //];
 
@@ -19,7 +19,7 @@ const configUserQ = [
     {
         type : 'password',
         name : 'adminUser',
-        message : chalk.yellow('Enter adminuser key ID'),
+        message : chalk.greenBright('Enter adminuser key ID'),
         mask: '*'
     },
 //];
@@ -28,7 +28,7 @@ const configUserQ = [
     {
         type : 'password',
         name : 'adminUserKey',
-        message : chalk.yellow('Enter adminuser secret access key'),
+        message : chalk.greenBright('Enter adminuser secret access key'),
         mask: '*'
     },
 //]
@@ -37,7 +37,7 @@ const configUserQ = [
     {
         type : 'checkbox',
         name : 'region',
-        message : chalk.yellow('Select Region'), 
+        message : chalk.greenBright('Select Region'), 
         choices: 
         [
             new inquirer.Separator(chalk.cyanBright.bold('*** US Region ***')),

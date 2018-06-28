@@ -14,8 +14,11 @@ const configUserQ = require('./lassie-configure');
 //Lambda Function Question
 const createLFQs = require('./lassie-createLambda');
 
+//Lamda Delete Function
+const deleteLambda = require('./lassie-deleteLambda');
 
-console.log(chalk.yellowBright(figlet.textSync('Lassie', {
+
+console.log(chalk.cyanBright(figlet.textSync('Lassie', {
   font: 'Train',
   horizontalLayout: 'fitted',
   verticalLayout: 'fitted'
@@ -72,24 +75,21 @@ program
 
 //CLI command to list all current Lambda functions  
 program 
-  .command('listLambda')
+  .command('listLambdas')
   .description('Listing all current Lambda functions')
   .action(() => {
-    return aws.listFunctions();
+    return aws.listLambdas();
   })
 
-// program
-//   .command('deleteLambda')
-//   .description('Delete a Lambda function from the current list of Lambda functions')
-//   .action(() => {
-//     const listLambda = aws.listFunctions();
-//     //listLambda();
-//     console.log('my results are ', listLambda);
-//     listLambda.Functions.map((elem) => {
-//       return elem.FunctionName;
-//     })
-//     //return listLambda;
-//   })
+program
+  .command('deleteLambda')
+  .description('Delete a Lambda function from the current list of Lambda functions')
+  .action(() => {
+    prompt(deleteLambda).then((answer) => {
+      return aws.deleteLambda(answer);
+    })
+    //return listLambda;
+  })
 
 
 

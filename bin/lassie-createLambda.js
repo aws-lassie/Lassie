@@ -9,10 +9,10 @@ const createLFQs = [
     {
         type : 'checkbox',
         name : 'region',
-        message : chalk.yellow('Select Region'), 
+        message : chalk.greenBright('Select Region'), 
         choices: 
         [
-            new inquirer.Separator(chalk.cyanBright.bold('*** US Region ***')),
+            new inquirer.Separator(chalk.yellowBright('*** US Region ***')),
             {
                 name: chalk.blue('US East N. Virgina:') + chalk.green(' us-east-1'),
                 value: 'us-east-1'
@@ -33,22 +33,22 @@ const createLFQs = [
                 name: chalk.blue('AWS GovCloud(US)') + chalk.green(' us-gov-west1'),
                 value: 'aws-us-gov'
             },
-            new inquirer.Separator(chalk.cyanBright.bold('*** Canada ***')),
+            new inquirer.Separator(chalk.yellowBright('*** Canada ***')),
             {
                 name: chalk.blue('CA Central') + chalk.green(' ca-central-1'),
                 value: 'ca-central-1'
             },
-            new inquirer.Separator(chalk.cyanBright.bold('*** South America ***')),
+            new inquirer.Separator(chalk.yellowBright('*** South America ***')),
             {
                 name: chalk.blue('SA Sao Paulo') + chalk.green(' sa-east-1'),
                 value: 'sa-east-1'
             },
-            new inquirer.Separator(chalk.cyanBright.bold('*** China ***')),
+            new inquirer.Separator(chalk.yellowBright('*** China ***')),
             {
                 name: chalk.blue('China Beijing') + chalk.green(' cn-north-1'),
                 value: 'cn-north1'
             },
-            new inquirer.Separator(chalk.cyanBright.bold('*** Asia Pacific Region ***')),
+            new inquirer.Separator(chalk.yellowBright('*** Asia Pacific Region ***')),
             {
                 name: chalk.blue('AP Tokyo') + chalk.green(' ap-north-east-1'),
                 value: 'ap-north-east-1'
@@ -69,7 +69,7 @@ const createLFQs = [
                 name: chalk.blue('AP Sydney') + chalk.green(' ap-southeast-2'),
                 value: 'ap-southeast-2'
             },
-            new inquirer.Separator(chalk.cyanBright.bold('*** EU Region ***')),
+            new inquirer.Separator(chalk.yellowBright('*** EU Region ***')),
             {
                 name: chalk.blue('EU Frankfurt') + chalk.green(' eu-central-1'),
                 value: 'eu-central-1'
@@ -97,39 +97,39 @@ const createLFQs = [
     {
         type : 'input',
         name : 'functionName',
-        message : chalk.yellow('Enter the Lambda function name')
+        message : chalk.yellowBright('Enter the Lambda function name')
     },
     {
         type : 'input',
         name : 'zipFileLocation',
-        message: chalk.yellow('Input full directory for zipped starting with fileb://') + '\n' + 
+        message: chalk.yellowBright('Input full directory for zipped starting with fileb://') + '\n' + 
                 'Example: cd: file/file.js.' + '\n' +
-                 chalk.green('Input: fileb://file/file.js.zip')
+                 chalk.greenBright('Input: fileb://file/file.js.zip')
     },
     {
         type : 'input',
         name : 'roleARN',
-        message : chalk.yellow('Enter the role ARN associated')
+        message : chalk.yellowBright('Enter the role ARN associated')
     },
     {
         type : 'input',
         name : 'handlerName',
-        message : chalk.yellow('Enter the function handler name')
+        message : chalk.yellowBright('Enter the function handler name')
     },
     {
         type : 'checkbox',
         name : 'nodeEnvironment',
-        message : chalk.yellow('Select a Node Env.'),
+        message : chalk.yellowBright('Select a Node Env.'),
         choices: 
         [
             new inquirer.Separator(chalk.cyanBright.bold('*** Callbacks ***')),
             {
-                name: chalk.green('nodejs6.10'),
+                name: chalk.greenBright('nodejs6.10'),
                 value: 'nodejs6.10'
             },
             new inquirer.Separator(chalk.cyanBright.bold('*** Async ***')),
             {
-                name: chalk.green('nodejs8.10'),
+                name: chalk.greenBright('nodejs8.10'),
                 value: 'nodejs8.10'
             },
         ]
@@ -137,7 +137,7 @@ const createLFQs = [
     {
         type : 'input',
         name : 'profileName',
-        message : chalk.yellow('Enter profile name')
+        message : chalk.yellowBright('Enter profile name')
     }
 ]
 

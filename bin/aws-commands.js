@@ -87,18 +87,20 @@ aws.createLF = ((inputs) => {
     --runtime ${inputs.nodeEnvironment[0]} \
     --profile ${inputs.profileName}`;
 
-    return exec(awsCreateLF, execCallback);
+    exec(awsCreateLF, execCallback);
 })
 
-aws.listFunctions = (() => {
+aws.listLambdas = (() => {
 
     const awsListFuncs = `aws lambda list-functions`;
 
-    exec(awsListFuncs, execCallback);
+    return exec(awsListFuncs, execCallback);
 })
 
-aws.deleteFunction = (() => {
-    
+aws.deleteLambda = ((input) => {
+    const awsDelete = `aws lambda delete-function --function-name ${input.lambdaName}`;
+
+    return exec(awsDelete, execCallback);
 })
 
 module.exports = ('aws', aws);
