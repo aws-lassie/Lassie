@@ -15,7 +15,7 @@ const configUserQ = require('./lassie-configure');
 const createLFQs = require('./lassie-createLambda');
 
 
-console.log(chalk.yellow(figlet.textSync('Lassie', {
+console.log(chalk.yellowBright(figlet.textSync('Lassie', {
   font: 'Train',
   horizontalLayout: 'fitted',
   verticalLayout: 'fitted'
@@ -79,7 +79,17 @@ program
   })
 
 // program
-//   .command()
+//   .command('deleteLambda')
+//   .description('Delete a Lambda function from the current list of Lambda functions')
+//   .action(() => {
+//     const listLambda = aws.listFunctions();
+//     //listLambda();
+//     console.log('my results are ', listLambda);
+//     listLambda.Functions.map((elem) => {
+//       return elem.FunctionName;
+//     })
+//     //return listLambda;
+//   })
 
 
 

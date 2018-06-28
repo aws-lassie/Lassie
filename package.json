@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode production",
-    "start-dev": "nodemon ./server/server.js"
+    "start": "nodemon ./server/server.js"
   },
   "bin": {
     "lassie": "./bin/index.js"
