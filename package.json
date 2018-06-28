@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --mode production",
+    "build": "webpack --watch --mode production",
     "start-dev": "nodemon ./server/server.js"
   },
   "bin": {
@@ -27,7 +27,9 @@
     "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
+    "css-loader": "^0.28.11",
     "html-webpack-plugin": "^3.2.0",
+    "style-loader": "^0.21.0",
     "webpack": "^4.12.1",
     "webpack-cli": "^3.0.8"
   },
@@ -38,6 +40,7 @@
     "nodemon": "^1.17.5",
     "path": "^0.12.7",
     "react": "^16.4.1",
+    "react-bootstrap": "^0.32.1",
     "react-dom": "^16.4.1"
   }
 }
