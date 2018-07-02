@@ -12,6 +12,7 @@
     "testcli": "./index.js"
   },
   "dependencies": {
+    "aws-sdk": "^2.265.1",
     "commander": "^2.15.1"
   }
 }
