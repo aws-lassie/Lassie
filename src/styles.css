@@ -2,41 +2,61 @@
   position:absolute;
   left:0; 
   right:0;
-  height: 92px;
+  height: 67px;
+}
+
+.titleDiv {
+  position:absolute; 
+  left:0; 
+  width: 178px;
+  height: 67px;
 }
 
 .title {
  margin: inline-block;
  position: relative; 
- top: 15px;
  left: 40px;
 }
 
+.remainingTop {
+  position: absolute;
+  height: 67px; 
+  left: 178px;
+  right: 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+}
+
+.stats {
+  width: 200px;
+  height: 50px;
+  margin-top: 25px;
+}
+
 .left {
-  position:absolute;
+  position: absolute;
   left:0; 
   top: 72px; 
   bottom: 0;
   width: 178px;
 }
 
-@media (min-width: 768px) {
-  #menu {
-    position: absolute;
-    left: 45px;
-    width: 110px;
-    /* reset style */
-    visibility: visible;
-    opacity: 1;
-    color: '#FFFFFF';
-  }
+#menu {
+  position: absolute;
+  left: 45px;
+  width: 110px;
+  /* reset style */
+  visibility: visible;
+  opacity: 1;
+  color: '#FFFFFF';
 }
 
-@media (min-width: 768px) { 
- .cd-main-content .content-wrapper { 
- margin-left: 110px; 
- } 
-}
+
+.cd-main-content .content-wrapper { 
+margin-left: 110px; 
+} 
 
 
 .main {
@@ -48,19 +68,53 @@
   background-color: lightgray;
 }
 
-.statBoxes {
-  top: 75px;
-  flex: inline-block;
-}
-
-
 .recents {
   position: absolute;
-  top: 125px;
+  top: 20px;
   left: 20px;
   right: 20px;
-  bottom: 300px;
+  bottom: 475px;
   background-color: white;
+}
+
+.invocations {
+  position: absolute;
+  top: 150px;
+  left: 20px;
+  right: 230px;
+  bottom: 270px;
+  background-color: white;
+}
+
+.durations {
+  position: absolute;
+  top: 360px;
+  left: 20px;
+  right: 230px;
+  bottom: 20px;
+  background-color: white;
+}
+
+.bestWorst {
+
+}
+
+.best {
+  background-color: white;
+  position: absolute;
+  top: 150px;
+  left: 800px;
+  right: 20px;
+  bottom: 270px;  
+}
+
+.worst {
+  background-color: white;
+  position: absolute;
+  top: 360px;
+  left: 800px;
+  right: 20px;
+  bottom: 20px; 
 }
 
 #index {
