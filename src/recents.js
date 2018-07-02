@@ -5,7 +5,12 @@ class Recents extends React.Component {
   render() {
     return (
       <div class="recents">
-        Recents
+        <h5>Recents</h5>
+        <ul>
+          <li> Func1 </li>
+          <li> Func2 </li>
+          <li> Func3 </li>
+        </ul>  
       </div>
     );
   }

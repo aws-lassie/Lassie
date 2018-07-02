@@ -3,7 +3,10 @@ import ReactDOM from "react-dom";
 import NavBar from "./nav-bar.js";
 import Recents from "./recents.js";
 import Stats from "./stats.js";
+import BestWorstFuncs from "./best-worst-funcs.js";
 import styles from "./styles.css";
+import Invocations from "./invocations.js";
+import Durations from "./durations.js";
 
 export class App extends React.Component {
   constructor(props) {
@@ -13,14 +16,19 @@ export class App extends React.Component {
     return (
       <div>
         <div class="top" >
-            <h2 class="title" >Lassie</h2>  
+            <div class="titleDiv">
+              <h2 class="title">Lassie</h2>
+            </div>
+              < Stats /> 
         </div>
         <div class="left">
           < NavBar />
         </div>
         <div class="main">
-          < Stats />
           < Recents />
+          < BestWorstFuncs />
+          < Invocations />
+          < Durations />
         </div>
       </div>
     )
