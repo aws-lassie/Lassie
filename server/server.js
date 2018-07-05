@@ -10,16 +10,18 @@ const app = express();
 app.use(express.static(path.join(__dirname, './../dist')));
 
 app.get('/creds', (req, res) => {
-  const sharedCreds = new AWS.SharedIniFileCredentials({ profile: 'defaultasljdg' });
-
+  const sharedCreds = new AWS.SharedIniFileCredentials({ profile: 'default' });
+  console.log('shared creds: ', sharedCreds);
+  console.log('aws config region', AWS.config.region);
   res.setHeader('Content-Type', 'application/json');
-  if (sharedCreds.secretAccessKey === undefined ||
+  console.log('shared Creds Access key', sharedCreds.secretAccessKey);
+  if (sharedCreds.secretAccessKey === undefined || 
     sharedCreds.accessKeyId === undefined ||
     AWS.config.region === undefined) {
     console.log('Error! Go back and set up the CLI properly');
     res.send({ error: 'Error! Go back and set up the CLI properly' });
   } else {
-    res.send(JSON.stringify({
+    res.status(200).send(JSON.stringify({
       secretAccessKey: sharedCreds.secretAccessKey,
       accessKeyId: sharedCreds.accessKeyId,
       region: AWS.config.region

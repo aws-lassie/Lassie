@@ -34,7 +34,7 @@
     "webpack-cli": "^3.0.8"
   },
   "dependencies": {
-    "aws-sdk": "^2.265.1",
+    "aws-sdk": "^2.267.1",
     "body-parser": "^1.18.3",
     "chalk": "^2.4.1",
     "chalk-rainbow": "^1.0.0",

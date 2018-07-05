@@ -4,7 +4,7 @@ import styles from './styles.css';
 class BestWorstFuncs extends React.Component {
   render() {
     return (
-      <div class="bestWorst">
+      <div >
         <div class="best">
           <h5>Best Performing</h5>
         </div>
