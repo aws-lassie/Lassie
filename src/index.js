@@ -9,78 +9,52 @@ import Invocations from "./invocations.js";
 import Durations from "./durations.js";
 import AWS from "aws-sdk";
 
-
-console.log('pre config command: ', AWS.config);
-
-let getCreds = (() => {
+let getCredsAndScan = (() => {
   let executed = false;
   return function() {
     if (!executed) {
       executed = true;
       // fetch request for creds from credentials file
-      fetch('https://localhost3000/creds')
-        .then(res => {
-          if(res.ok) {
-            //return res;
-            AWS.config.update({
-              credentials: {
-                accessKeyId: res.body.accessKeyId,
-                // in the file it's aws_access_key_id
-                secretAccessKey: res.body.secretAccessKey 
-                // in the file it's aws_secret_access_key                
-              },
-              region: res.body.region
-            })
+      fetch('/creds')
+        .then (res => {
+          if (res.ok) {
+            return res.json();
           } else {
-            throw Error(`Error status ${res.status}`);
+            console.log('Error in response');
           }
         })
-        .catch(console.log(`Error: ${res.statusText}`));
+        .then(res => {
+            AWS.config.update({
+              credentials: {
+                accessKeyId: res.accessKeyId,
+                secretAccessKey: res.secretAccessKey                 
+              },
+              region: res.region
+            })
+
+            let docClient = new AWS.DynamoDB.DocumentClient();
+
+            let params = {
+              TableName: 'LassieLogs'
+            };
+
+            docClient.scan(params, (err, data) => {
+              if(err) {
+                console.log('Error reading from db', err);
+              } else {
+                console.log('Success ', data);
+              }
+            });
+        })
+        .catch((err) => console.log('Error ', err));
     }
   };
-});
+})();
 
-getCreds(); 
+getCredsAndScan();
 
-AWS.config.update({
-  credentials: {
-    accessKeyId: "AKIAIVMFGZGKFWPQUH7Q",
-    secretAccessKey: "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"
-   },
-  region: 'us-east-2'
-});
+// another fetch request here to refresh the data 
 
-console.log('post config command: ', AWS.config);
-// this is horrible practice! We need a way to update the SDK config when the user updates the CLI
-// 1 option is to do it with the command itself
-// another option is to import the creds from a pre-configured AWS Cognito User Pool 
-// can't run the file using loadFromPath because this isn't node, it's the frontend. Same for ShareIniFileCreds
-
-
-
-// var credentials = new AWS.SharedIniFileCredentials({profile: 'adminuser2'});
-// console.log('credentials: ', credentials);
-
-// console.log('SDK creds: ', AWS.config.credentials);
-// console.log('CLI creds: ', AWS.config.loadFromPath('~/.aws/config'));
-// console.log('post config command: ', AWS.config);
-// AWS.config.credentials = credentials;
-
-let docClient = new AWS.DynamoDB.DocumentClient();
-
-let params = {
-  TableName: 'LassieLogs',
-  Key: {'Id': 7}
-  // should think through the initial request for all info and all subsequent requests
-};
-
-docClient.get(params, (err, data) => {
-  if(err) {
-    console.log('Error reading from db', err);
-  } else {
-    console.log('Success ', data);
-  }
-});
 
 export class App extends React.Component {
   constructor(props) {
