@@ -8,13 +8,13 @@
 .titleDiv {
   position:absolute; 
   left:0em; 
-  width: 178em;
+  width: 120em;
   height: 67em;
 }
 
 .title {
  margin: inline-block;
- position: relative; 
+ position: absolute; 
  left: 40px;
 }
 
@@ -22,7 +22,8 @@
   position: absolute;
   height: 67px; 
   left: 178px;
-  right: 0px;
+  width: 70%;
+  font-size: 12px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -64,9 +65,8 @@ margin-left: 110px;
   position: absolute;
   left:178px; 
   top:92px; 
-  width: 100%;
-  right:0px; 
-  bottom:0px;
+  width: 70%;
+  height: 850px;
   background-color: rgb(240, 240, 240);
 }
 
@@ -74,8 +74,7 @@ margin-left: 110px;
   position: absolute;
   top: 20px;
   left: 20px;
-  right: 20px;
-  bottom: 475px;
+  width: 93%;
   background-color: white;
   box-shadow: 10px 10px 5px rgb(177, 177, 177);
 }
@@ -85,10 +84,11 @@ margin-left: 110px;
   top: 150px;
   left: 20px;
   /* right: 230px; */
-  width: 90%;
+  /* width: 96%; */
   background-color: white;
   box-shadow: 10px 10px 5px rgb(177, 177, 177);
 }
+
 
 .durations {
   position: absolute;
@@ -97,7 +97,7 @@ margin-left: 110px;
   /* right: 230px; */
   /* right: 20px;
   bottom: 20px; */
-  width: 90%;
+  /* width: 96%; */
   background-color: white;
   box-shadow: 10px 10px 5px rgb(177, 177, 177);
 }
