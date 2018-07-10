@@ -10,6 +10,8 @@ import Durations from "./durations.js";
 import AWS from "aws-sdk";
 import Dashboard from "./dashboard.js";
 
+console.log('INVOCATIONS',Invocations);
+
 import {
   BrowserRouter as Router,
   Route,

@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style> /* set the CSS */
+
+  body { 
+    font: 12px courier new;
+  }
+
+  div.tooltip {	
+    position: absolute;			
+    text-align: center;			
+    width: 45px;					
+    height: 16px;					
+    padding: 2px;				
+    font: 12px sans-serif;		
+    background: rgba(199, 199, 199, 0.29);	
+    border: 0px;		
+    border-radius: 8px;			
+    pointer-events: none;			
+  } 
+
+  .dot {
+    fill:rgba(31, 120, 56, 1);
+  }
+
+  .dot2 {
+    fill:rgba(143, 13, 13,1);
+  }
+  
+  .dot3 {
+    fill:rgba(33, 129, 150,1);
+  }
+
+  .dot4 {
+    fill:rgba(250, 145, 31,1);
+  }
+
+  .dot5 {
+    fill:rgba(91, 33, 116,1);
+  }
+
+  .pathLine { 
+    stroke: rgba(31, 120, 56, 0.893);
+    stroke-width: 3;
+    fill:  none;
+  }
+  
+  .pathLine2 { 
+    stroke: rgba(143, 13, 13, 0.694);
+    stroke-width: 3;
+    fill:  none;
+  }
+
+  .pathLine3 { 
+    stroke: rgba(33, 129, 150, 0.892);
+    stroke-width: 3;
+    fill:  none;
+  }
+
+  .pathLine4 { 
+    stroke: rgba(250, 145, 31, 0.892);
+    stroke-width: 3;
+    fill:  none;
+  }
+
+  .pathLine5 { 
+    stroke: rgba(91, 33, 116, 0.892);
+    stroke-width: 3;
+    fill:  none;
+  }
+
+
+  .axis path,
+  .axis line {
+    fill: none;
+    stroke: grey;
+    stroke-width: 1;
+    shape-rendering: crispEdges;
+  }
+
+  .area {
+    fill:rgba(31, 120, 56, 0.29);
+  }
+  .area2 {
+    fill:rgba(143, 13, 13, 0.29);
+  }
+  .area3 {
+    fill:rgba(33, 129, 150, 0.29);
+  }
+  .area4 {
+    fill:rgba(250, 145, 31, 0.29);
+  }
+  .area5 {
+    fill:rgba(91, 33, 116, 0.29);
+  }
+
+
+
+</style>
+<body>
+
+<!-- load the d3.js library -->    
+<script src="https://d3js.org/d3.v3.min.js"></script>
+<script src="https://d3js.org/d3-path.v1.min.js"></script>
+<script src="https://d3js.org/d3-shape.v1.min.js"></script>
+
+<script>
+
+  // Set the dimensions of the canvas / graph
+  var margin = {top: 30, right: 20, bottom: 30, left: 50},
+      width = 400 - margin.left - margin.right,
+      height = 270 - margin.top - margin.bottom;
+
+  // Parse the date / time
+  var parseDate = d3.time.format("%d-%m-%Y").parse;
+  var parseDur = d3.time.format("%M:%S").parse;
+  var parseMem = d3.time.format("%M:%S").parse;
+
+  // Set the ranges
+  var x = d3.time.scale().range([0, width]);
+  var y = d3.scale.linear().range([height, 0]);
+
+  //Set the area
+  var area = d3.area()
+      .x(function(d) { return x(d.date); })
+      .y0(height)
+      .y1(function(d) { return y(d.close); });
+  var area2 = d3.area()
+      .x(function(d) { return x(d.dur); })
+      .y0(height)
+      .y1(function(d) { return y(d.num); });
+  var area3 = d3.area()
+      .x(function(d) { return x(d.dur2); })
+      .y0(height)
+      .y1(function(d) { return y(d.mem); });
+  var area4 = d3.area()
+      .x(function(d) { return x(d.dur3); })
+      .y0(height)
+      .y1(function(d) { return y(d.val); });
+  var area5 = d3.area()
+      .x(function(d) { return x(d.dur4); })
+      .y0(height)
+      .y1(function(d) { return y(d.val2); });
+  
+  // Define the line
+  var valueline = d3.svg.line()
+      .x(function(d) { return x(d.date); })
+      .y(function(d) { return y(d.close); });
+  
+  var valueline2 = d3.svg.line()
+      .x(function(d) { return x(d.dur); })
+      .y(function(d) { return y(d.num); });
+
+  var valueline3 = d3.svg.line()
+      .x(function(d) { return x(d.dur2); })
+      .y(function(d) { return y(d.mem); });
+  
+  var valueline4 = d3.svg.line()
+      .x(function(d) { return x(d.dur3); })
+      .y(function(d) { return y(d.val); });
+  
+  var valueline5 = d3.svg.line()
+      .x(function(d) { return x(d.dur4); })
+      .y(function(d) { return y(d.val2); });
+
+  // Define the div for the tooltip
+  var div = d3.select("body").append("div")	
+    .attr("class", "tooltip")				
+    .style("opacity", 0);
+
+  // Adds the svg canvas
+  var svg = d3.select("body")
+      .append("svg")
+          .attr("width", width + margin.left + margin.right)
+          .attr("height", height + margin.top + margin.bottom)
+      .append("g")
+          .attr("transform", 
+                "translate(" + margin.left + "," + margin.top + ")");
+
+
+  // Define the axes
+  var xAxis = d3.svg.axis().scale(x)
+      .orient("bottom").ticks(5);
+
+  var yAxis = d3.svg.axis().scale(y)
+      .orient("left").ticks(10);
+
+
+  var data = [
+    {time: "01-07-2018", value:14.2},
+    {time: "02-07-2018", value:10.2},
+    {time: "03-07-2018", value:31.5},
+    {time: "04-07-2018", value:20.2},
+    {time: "05-07-2018", value:14.8},
+    {time: "06-07-2018", value:24.6},
+    {time: "07-07-2018", value:1.6},
+    {time: "08-07-2018", value:32.0},
+    {time: "09-07-2018", value:27.4},
+    {time: "10-07-2018", value:37.3},
+  ];
+
+  var dur = [
+    {time: "01:38", value:14.2},
+    {time: "02:18", value:2.2},
+    {time: "03:20", value:13.5},
+    {time: "04:07", value:20.2},
+    {time: "05:02", value:14.8},
+    {time: "06:07", value:4.6},
+    {time: "07:07", value:31.6},
+    {time: "08:33", value:32.0},
+    {time: "09:16", value:45.4},
+    {time: "10:04", value:37.3},
+  ];
+
+  var mem = [
+    {time: "01:38", value:164.2},
+    {time: "02:18", value:116.2},
+    {time: "03:20", value:41.5},
+    {time: "04:07", value:60.2},
+    {time: "05:02", value:48.8},
+    {time: "06:07", value:19.6},
+    {time: "07:07", value:1.6},
+    {time: "08:33", value:74.0},
+    {time: "09:16", value:112.4},
+    {time: "10:04", value:90.3},
+  ];
+
+  var cpu = [
+    {time: "01:38", value:80.2},
+    {time: "02:18", value:64.2},
+    {time: "03:20", value:41.5},
+    {time: "04:07", value:60.2},
+    {time: "05:02", value:48.8},
+    {time: "06:07", value:19.6},
+    {time: "07:07", value:7.6},
+    {time: "08:33", value:14.0},
+    {time: "09:16", value:12.4},
+    {time: "10:04", value:53.3},
+  ];
+
+  var coldStart = [
+    {time: "01:38", value:800},
+    {time: "02:18", value:300},
+    {time: "03:20", value:245},
+    {time: "04:07", value:120.2},
+    {time: "05:02", value:214.8},
+    {time: "06:07", value:400.6},
+    {time: "07:07", value:451.6},
+    {time: "08:33", value:322.0},
+    {time: "09:16", value:127.4},
+    {time: "10:04", value:227.3},
+  ];
+
+  
+  svg.append("text")
+        .attr("x", (width / 2))             
+        .attr("y", 0 - (margin.top / 2))
+        .attr("text-anchor", "middle")  
+        .style("font-size", "14px") 
+        .style("text-decoration", "underline")  
+        .text("Number of Invocations: July 1st - July 10th");
+
+      // Get the data
+      data.forEach(function(d) {
+          d.date = parseDate(d.time);
+          d.close = +d.value;
+          });
+
+      // Scale the range of the data
+      x.domain(d3.extent(data, function(d) { return d.date; }));
+      y.domain([0, d3.max(data, function(d) { return d.value; })]);
+
+      // add the area
+      svg.append("path")
+        .datum(data)
+        .attr("class", "area")
+        .attr("d", area)
+
+
+      // Add the valueline path.
+      svg.append("path")
+          .attr("class", "pathLine")
+          .attr("d", valueline(data))
+
+      // Add the scatterplot
+      svg.selectAll("dot")	
+            .data(data)			
+        .enter().append("circle")								
+            .attr("r", 3)		
+            .attr("cx", function(d) { return x(d.date); })		 
+            .attr("cy", function(d) { return y(d.close); })	
+            .attr("class", "dot")	
+            .on("mouseover", function(d) {		
+                div.transition()		
+                    .duration(200)		
+                    .style("opacity", .9);		
+                div.html(d.close)	
+                    .style("left", (d3.event.pageX) + "px")		
+                    .style("top", (d3.event.pageY - 28) + "px");	
+                })					
+            .on("mouseout", function(d) {		
+                div.transition()		
+                    .duration(500)		
+                    .style("opacity", 0);	
+            });
+
+      // Add the X Axis
+      svg.append("g")
+          .attr("class", "x axis")
+          .attr("transform", "translate(0," + height + ")")
+          .call(xAxis);
+
+      // Add the Y Axis
+      svg.append("g")
+          .attr("class", "y axis")
+          .call(yAxis);
+          
+
+  //});
+//CHART2-----------------------------------------------------------------
+  
+  var chart2 = d3.select("body")
+      .append("svg")
+          .attr("width", width + margin.left + margin.right)
+          .attr("height", height + margin.top + margin.bottom)
+      .append("g")
+          .attr("transform", 
+                "translate(" + margin.left + "," + margin.top + ")");
+
+    chart2.append("text")
+        .attr("x", (width / 2))             
+        .attr("y", 0 - (margin.top / 2))
+        .attr("text-anchor", "middle")  
+        .style("font-size", "14px") 
+        .style("text-decoration", "underline")  
+        .text("Billing Cost vs Function Duration");
+
+    // Get the data
+  //d3.csv("data.csv", function(error, data) {
+    dur.forEach(function(d) {
+              d.dur = parseDur(d.time);
+              d.num = +d.value;
+          });
+
+      // Scale the range of the data
+      x.domain(d3.extent(dur, function(d) { return d.dur; }));
+      y.domain([0, d3.max(dur, function(d) { return d.value; })]);
+
+      // add the area
+      chart2.append("path")
+        .datum(dur)
+        .attr("class", "area2")
+        .attr("d", area2);
+
+      // Add the valueline path.
+      chart2.append("path")
+          .attr("class", "pathLine2")
+          .attr("d", valueline2(dur))
+
+      // Add the scatterplot
+      chart2.selectAll("dot")	
+            .data(dur)			
+        .enter().append("circle")								
+            .attr("r", 3)		
+            .attr("cx", function(d) { return x(d.dur); })		 
+            .attr("cy", function(d) { return y(d.num); })	
+            .attr("class", "dot2")	
+            .on("mouseover", function(d) {		
+                div.transition()		
+                    .duration(200)		
+                    .style("opacity", .9);		
+                div.html(d.num)	
+                    .style("left", (d3.event.pageX) + "px")		
+                    .style("top", (d3.event.pageY - 28) + "px");	
+                })					
+            .on("mouseout", function(d) {		
+                div.transition()		
+                    .duration(500)		
+                    .style("opacity", 0);	
+            });
+          
+
+      // Add the X Axis
+      chart2.append("g")
+          .attr("class", "x axis")
+          .attr("transform", "translate(0," + height + ")")
+          .call(xAxis);
+
+      // Add the Y Axis
+      chart2.append("g")
+          .attr("class", "y axis")
+          .call(yAxis);
+
+  //});
+//CHART3---------------------------------------------------------------
+
+var chart3 = d3.select("body")
+      .append("svg")
+          .attr("width", width + margin.left + margin.right)
+          .attr("height", height + margin.top + margin.bottom)
+      .append("g")
+          .attr("transform", 
+                "translate(" + margin.left + "," + margin.top + ")");
+
+    chart3.append("text")
+        .attr("x", (width / 2))             
+        .attr("y", 0 - (margin.top / 2))
+        .attr("text-anchor", "middle")  
+        .style("font-size", "14px") 
+        .style("text-decoration", "underline")  
+        .text("Memory Use (mb)");
+
+    // Get the data
+  //d3.csv("data.csv", function(error, data) {
+    mem.forEach(function(d) {
+              d.dur2 = parseMem(d.time);
+              d.mem = +d.value;
+          });
+
+      // Scale the range of the data
+      x.domain(d3.extent(mem, function(d) { return d.dur2; }));
+      y.domain([0, d3.max(mem, function(d) { return d.value; })]);
+
+      // add the area
+      chart3.append("path")
+        .datum(mem)
+        .attr("class", "area3")
+        .attr("d", area3);
+
+      // Add the valueline path.
+      chart3.append("path")
+          .attr("class", "pathLine3")
+          .attr("d", valueline3(mem))
+
+      // Add the scatterplot
+      chart3.selectAll("dot")	
+            .data(mem)			
+        .enter().append("circle")								
+            .attr("r", 3)		
+            .attr("cx", function(d) { return x(d.dur2); })		 
+            .attr("cy", function(d) { return y(d.mem); })
+            .attr("class", "dot3")	
+            .on("mouseover", function(d) {		
+                div.transition()		
+                    .duration(200)		
+                    .style("opacity", .9);		
+                div.html(d.mem)	
+                    .style("left", (d3.event.pageX) + "px")		
+                    .style("top", (d3.event.pageY - 28) + "px");	
+                })					
+            .on("mouseout", function(d) {		
+                div.transition()		
+                    .duration(500)		
+                    .style("opacity", 0);	
+            });
+          
+
+      // Add the X Axis
+      chart3.append("g")
+          .attr("class", "x axis")
+          .attr("transform", "translate(0," + height + ")")
+          .call(xAxis);
+
+      // Add the Y Axis
+      chart3.append("g")
+          .attr("class", "y axis")
+          .call(yAxis);
+
+  //});
+//CHART4------------------------------------------------------------------
+
+  var chart4 = d3.select("body")
+      .append("svg")
+          .attr("width", width + margin.left + margin.right)
+          .attr("height", height + margin.top + margin.bottom)
+      .append("g")
+          .attr("transform", 
+                "translate(" + margin.left + "," + margin.top + ")");
+
+    chart4.append("text")
+        .attr("x", (width / 2))             
+        .attr("y", 0 - (margin.top / 2))
+        .attr("text-anchor", "middle")  
+        .style("font-size", "14px") 
+        .style("text-decoration", "underline")  
+        .text("CPU Usage (%)");
+
+    // Get the data
+  //d3.csv("data.csv", function(error, data) {
+    cpu.forEach(function(d) {
+              d.dur3 = parseMem(d.time);
+              d.val = +d.value;
+          });
+
+      // Scale the range of the data
+      x.domain(d3.extent(cpu, function(d) { return d.dur3; }));
+      y.domain([0, d3.max(cpu, function(d) { return d.value; })]);
+
+      // add the area
+      chart4.append("path")
+        .datum(cpu)
+        .attr("class", "area4")
+        .attr("d", area4);
+
+      // Add the valueline path.
+      chart4.append("path")
+          .attr("class", "pathLine4")
+          .attr("d", valueline4(cpu))
+
+      // Add the scatterplot
+      chart4.selectAll("dot")	
+            .data(cpu)			
+        .enter().append("circle")								
+            .attr("r", 3)		
+            .attr("cx", function(d) { return x(d.dur3); })		 
+            .attr("cy", function(d) { return y(d.val); })
+            .attr("class", "dot4")		
+            .on("mouseover", function(d) {		
+                div.transition()		
+                    .duration(200)		
+                    .style("opacity", .9);		
+                div.html(d.val)	
+                    .style("left", (d3.event.pageX) + "px")		
+                    .style("top", (d3.event.pageY - 28) + "px");	
+                })					
+            .on("mouseout", function(d) {		
+                div.transition()		
+                    .duration(500)		
+                    .style("opacity", 0);	
+            });
+          
+
+      // Add the X Axis
+      chart4.append("g")
+          .attr("class", "x axis")
+          .attr("transform", "translate(0," + height + ")")
+          .call(xAxis);
+
+      // Add the Y Axis
+      chart4.append("g")
+          .attr("class", "y axis")
+          .call(yAxis);
+//Chart5---------------------------------------------------------------------
+
+  var chart5 = d3.select("body")
+      .append("svg")
+          .attr("width", width + margin.left + margin.right)
+          .attr("height", height + margin.top + margin.bottom)
+      .append("g")
+          .attr("transform", 
+                "translate(" + margin.left + "," + margin.top + ")");
+
+    chart5.append("text")
+        .attr("x", (width / 2))             
+        .attr("y", 0 - (margin.top / 2))
+        .attr("text-anchor", "middle")  
+        .style("font-size", "14px") 
+        .style("text-decoration", "underline")  
+        .text("Cold Start Duration (ms)");
+
+    // Get the data
+  //d3.csv("data.csv", function(error, data) {
+    coldStart.forEach(function(d) {
+              d.dur4 = parseMem(d.time);
+              d.val2 = +d.value;
+          });
+
+      // Scale the range of the data
+      x.domain(d3.extent(coldStart, function(d) { return d.dur4; }));
+      y.domain([0, d3.max(coldStart, function(d) { return d.val2; })]);
+
+      // add the area
+      chart5.append("path")
+        .datum(coldStart)
+        .attr("class", "area5")
+        .attr("d", area5);
+
+      // Add the valueline path.
+      chart5.append("path")
+          .attr("class", "pathLine5")
+          .attr("d", valueline5(coldStart))
+
+      // Add the scatterplot
+      chart5.selectAll("dot")	
+            .data(coldStart)			
+        .enter().append("circle")								
+            .attr("r", 3)		
+            .attr("cx", function(d) { return x(d.dur4); })		 
+            .attr("cy", function(d) { return y(d.val2); })
+            .attr("class", "dot5")		
+            .on("mouseover", function(d) {		
+                div.transition()		
+                    .duration(200)		
+                    .style("opacity", .9);		
+                div.html(d.val2)	
+                    .style("left", (d3.event.pageX) + "px")		
+                    .style("top", (d3.event.pageY - 28) + "px");	
+                })					
+            .on("mouseout", function(d) {		
+                div.transition()		
+                    .duration(500)		
+                    .style("opacity", 0);	
+            });
+          
+
+      // Add the X Axis
+      chart5.append("g")
+          .attr("class", "x axis")
+          .attr("transform", "translate(0," + height + ")")
+          .call(xAxis);
+
+      // Add the Y Axis
+      chart5.append("g")
+          .attr("class", "y axis")
+          .call(yAxis);
+
+
+
+</script>
+</body>
