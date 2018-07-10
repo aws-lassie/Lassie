@@ -16,11 +16,13 @@ class NavBar extends React.Component {
     return (
       <div id="menu" >
         <hr></hr>
-        <a>About Lassie</a>
+        Open source Lambda function monitoring
+        <hr></hr>
+        {/* <a>About Lassie</a>
         <br></br>
         <a>FAQ</a>
         <br></br>
-        <a>Settings</a>        
+        <a>Settings</a>         */}
       </div>
     )
   }
