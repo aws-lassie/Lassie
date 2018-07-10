@@ -84,14 +84,13 @@ margin-left: 110px;
   left: 20px;
   /* right: 230px; */
   right: 20px;
-  bottom: 270px;
   background-color: white;
   box-shadow: 10px 10px 5px rgb(177, 177, 177);
 }
 
 .durations {
   position: absolute;
-  top: 360px;
+  top: 500px;
   left: 20px;
   /* right: 230px; */
   right: 20px;
@@ -130,4 +129,92 @@ margin-left: 110px;
 
 #index {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, serif;
+}
+
+div.tooltip {	
+  position: absolute;			
+  text-align: center;			
+  width: 45px;					
+  height: 16px;					
+  padding: 2px;				
+  font: 12px sans-serif;		
+  background: rgba(199, 199, 199, 0.29);	
+  border: 0px;		
+  border-radius: 8px;			
+  pointer-events: none;			
+} 
+
+.dot {
+  fill:rgba(31, 120, 56, 1);
+}
+
+.dot2 {
+  fill:rgba(143, 13, 13,1);
+}
+
+.dot3 {
+  fill:rgba(33, 129, 150,1);
+}
+
+.dot4 {
+  fill:rgba(250, 145, 31,1);
+}
+
+.dot5 {
+  fill:rgba(91, 33, 116,1);
+}
+
+.pathLine { 
+  stroke: rgba(31, 120, 56, 0.893);
+  stroke-width: 3;
+  fill:  none;
+}
+
+.pathLine2 { 
+  stroke: rgba(143, 13, 13, 0.694);
+  stroke-width: 3;
+  fill:  none;
+}
+
+.pathLine3 { 
+  stroke: rgba(33, 129, 150, 0.892);
+  stroke-width: 3;
+  fill:  none;
+}
+
+.pathLine4 { 
+  stroke: rgba(250, 145, 31, 0.892);
+  stroke-width: 3;
+  fill:  none;
+}
+
+.pathLine5 { 
+  stroke: rgba(91, 33, 116, 0.892);
+  stroke-width: 3;
+  fill:  none;
+}
+
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: grey;
+  stroke-width: 1;
+  shape-rendering: crispEdges;
+}
+
+.area {
+  fill:rgba(31, 120, 56, 0.29);
+}
+.area2 {
+  fill:rgba(143, 13, 13, 0.29);
+}
+.area3 {
+  fill:rgba(33, 129, 150, 0.29);
+}
+.area4 {
+  fill:rgba(250, 145, 31, 0.29);
+}
+.area5 {
+  fill:rgba(91, 33, 116, 0.29);
 }
