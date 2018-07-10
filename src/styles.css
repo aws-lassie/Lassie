@@ -1,15 +1,15 @@
 .top {
-  position:absolute;
-  left:0; 
-  right:0;
-  height: 67px;
+  position: relative;
+  left: 0em; 
+  height: 67em;
+  width: 100%;
 }
 
 .titleDiv {
   position:absolute; 
-  left:0; 
-  width: 178px;
-  height: 67px;
+  left:0em; 
+  width: 178em;
+  height: 67em;
 }
 
 .title {
@@ -65,7 +65,7 @@ margin-left: 110px;
   top:92px; 
   right:0; 
   bottom:0;
-  background-color: lightgray;
+  background-color: rgb(240, 240, 240);
 }
 
 .recents {
@@ -75,43 +75,58 @@ margin-left: 110px;
   right: 20px;
   bottom: 475px;
   background-color: white;
+  box-shadow: 10px 10px 5px rgb(177, 177, 177);
 }
 
 .invocations {
   position: absolute;
   top: 150px;
   left: 20px;
-  right: 230px;
+  /* right: 230px; */
+  right: 20px;
   bottom: 270px;
   background-color: white;
+  box-shadow: 10px 10px 5px rgb(177, 177, 177);
 }
 
 .durations {
   position: absolute;
   top: 360px;
   left: 20px;
-  right: 230px;
+  /* right: 230px; */
+  right: 20px;
   bottom: 20px;
   background-color: white;
+  box-shadow: 10px 10px 5px rgb(177, 177, 177);
 }
 
-.best {
+.sectionTitle {
+  /* text-shadow: 1px 1px 1px rgb(177, 177, 177); */
+  position: relative;
+  text-decoration-line: underline;
+  text-decoration-style: double;
+  left: 1em;
+}
+
+/* .best {
   background-color: white;
   position: absolute;
-  top: 150px;
-  left: 800px;
-  right: 20px;
-  bottom: 270px;  
+  top: 150em;
+  left: 800em;
+  right: 20em;
+  bottom: 270em;  
+  box-shadow: 10px 10px 5px rgb(177, 177, 177);
 }
 
 .worst {
   background-color: white;
   position: absolute;
   top: 360px;
-  left: 800px;
-  right: 20px;
-  bottom: 20px; 
-}
+  left: 800em;
+  right: 20em;
+  bottom: 20em; 
+  box-shadow: 10px 10px 5px rgb(177, 177, 177);
+} */
 
 #index {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, serif;

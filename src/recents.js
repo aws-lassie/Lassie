@@ -11,7 +11,6 @@ class Recents extends React.Component {
     let listItems = [];
     this.props.functions.forEach((list) => {
       list.forEach((invoc) => {
-        console.log('metrics show: ', invoc["FuncName"], invoc["InvocationDur"], invoc["ColdStart"]);
         listItems.push(<li> {invoc["FuncName"] + ' Invocation Duration: ' + invoc["InvocationDur"] + ' Cold Start: ' + invoc["ColdStart"]} </li>);
       })
     });
@@ -20,7 +19,7 @@ class Recents extends React.Component {
 
     return (
       <div class="recents">
-        <h5>Recents</h5>
+        <h5 class="sectionTitle">Recents</h5>
         <ul>
           {display}
         </ul>  

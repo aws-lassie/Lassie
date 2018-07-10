@@ -5,7 +5,7 @@ class Durations extends React.Component {
   render () {
     return (
       <div class="durations">
-        <h5>Durations</h5>
+        <h5 class="sectionTitle">Durations</h5>
       </div>
     )
   }

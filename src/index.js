@@ -68,17 +68,12 @@ const readData = (data) => {
           funcs[funcName]["invocations"].push(invoc);
         }
 
-        // order from most recent invoc to least for each func
-        funcs[funcName]["invocations"].sort(function(a,b){
-          return new Date(b.Date) - new Date(a.Date);
-        });
-
         if(!coldStartStorage.hasOwnProperty(funcName)) {
           coldStartStorage[funcName] = { cold: 0, all: 0, percentCold: 0};
           funcTotal++;
         }
       } else if (metric === 'ColdStart') {
-        // console.log('funcName: ', funcName);
+
         if (invoc[metric]) {
           coldStartStorage[funcName]["cold"]++;
           coldStartStorage[funcName]["all"]++; 
@@ -150,15 +145,13 @@ export class App extends React.Component {
         if(err) {
           console.log('Error reading from db', err);
         } else {
-
-          this.setState(readData(data));
-          
+          this.setState(readData(data));        
         }
       });
     // }, 1000);
   }
 
-  //{...this.state}
+
   render() {
     console.log('this.state before render: ', this.state);
     return (

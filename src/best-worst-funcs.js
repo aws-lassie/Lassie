@@ -6,10 +6,10 @@ class BestWorstFuncs extends React.Component {
     return (
       <div >
         <div class="best">
-          <h5>Best Performing</h5>
+          <h5></h5>
         </div>
         <div class="worst">
-          <h5>Worst Performing</h5>
+          <h5></h5>
         </div>
       </div>
     )
