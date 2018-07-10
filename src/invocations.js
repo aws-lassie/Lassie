@@ -21,7 +21,7 @@ class Invocations extends React.Component {
     var component = this;
 
     // Set the dimensions of the canvas / graph
-    var margin = {top: 30, right: 20, bottom: 30, left: 50},
+    var margin = {top: 20, right: 20, bottom: 30, left: 50},
       width = 800 - margin.left - margin.right,
       height = 270 - margin.top - margin.bottom;
 
@@ -86,7 +86,6 @@ console.log('2----------------------')
         .attr("text-anchor", "middle")  
         .style("font-size", "14px") 
         .style("text-decoration", "underline")  
-        .text("Number of Invocations");
 console.log('7--------------------------')
       // Get the data
       data.forEach(function(d) {

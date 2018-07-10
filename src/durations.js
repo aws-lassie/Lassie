@@ -19,7 +19,7 @@ class Durations extends React.Component {
     var component = this;
 
     // Set the dimensions of the canvas / graph
-    var margin = {top: 30, right: 20, bottom: 30, left: 50},
+    var margin = {top: 20, right: 20, bottom: 30, left: 50},
       width = 800 - margin.left - margin.right,
       height = 270 - margin.top - margin.bottom;
 
@@ -82,7 +82,6 @@ class Durations extends React.Component {
         .attr("text-anchor", "middle")  
         .style("font-size", "14px") 
         .style("text-decoration", "underline")  
-        .text("Billing Cost vs Function Duration");
 
       // Get the data
       dur.forEach(function(d) {

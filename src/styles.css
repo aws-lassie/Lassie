@@ -1,8 +1,8 @@
 .top {
-  position: relative;
+  /* position: relative;
   left: 0em; 
   height: 67em;
-  width: 100%;
+  width: 100%; */
 }
 
 .titleDiv {
@@ -45,12 +45,13 @@
 
 #menu {
   position: absolute;
-  left: 45px;
+  left: 35px;
   width: 110px;
   /* reset style */
   visibility: visible;
   opacity: 1;
   color: '#FFFFFF';
+  font-size: 10px;
 }
 
 
@@ -63,8 +64,9 @@ margin-left: 110px;
   position: absolute;
   left:178px; 
   top:92px; 
-  right:0; 
-  bottom:0;
+  width: 100%;
+  right:0px; 
+  bottom:0px;
   background-color: rgb(240, 240, 240);
 }
 
@@ -83,7 +85,7 @@ margin-left: 110px;
   top: 150px;
   left: 20px;
   /* right: 230px; */
-  right: 20px;
+  width: 90%;
   background-color: white;
   box-shadow: 10px 10px 5px rgb(177, 177, 177);
 }
@@ -93,8 +95,9 @@ margin-left: 110px;
   top: 500px;
   left: 20px;
   /* right: 230px; */
-  right: 20px;
-  bottom: 20px;
+  /* right: 20px;
+  bottom: 20px; */
+  width: 90%;
   background-color: white;
   box-shadow: 10px 10px 5px rgb(177, 177, 177);
 }
