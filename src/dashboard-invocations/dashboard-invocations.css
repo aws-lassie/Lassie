@@ -1,0 +1,13 @@
+.invocations {
+  /* position: fixed; */
+  /* display: inline-block; */
+  width: 48%;
+  box-shadow: 10px 10px 5px rgb(66, 66, 66);
+  background-color: white;
+  margin: 20px 20px 0 20px;
+}
+
+.invocationsSectionTitle {
+  margin: 20px 0 0 20px;;
+  padding: 5px 0px 0px 5px;
+}

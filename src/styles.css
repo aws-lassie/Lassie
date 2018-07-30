@@ -1,0 +1,223 @@
+/* .top {
+  margin: 0 auto;
+  height: 20vh;
+  width: 100%;
+} */
+
+/* .titleDiv {
+  margin: inline-block; */
+  /* padding: 20em; */
+  /* position:absolute; 
+  left:0em; 
+  width: 120em; */
+/* } */
+
+/* .title {
+  width: 5%;
+  height: 5%;
+ /* left: 40em; */
+/* }  */
+
+/* .remainingTop {
+  position: relative;
+  height: calc(20vh - 50px);
+  left: 178em;
+  width: 40vh;
+  font-size: 12px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+} */
+
+/* .stats {
+  width: 200px;
+  height: 50px;
+  margin-top: 25px;
+} */
+
+/* .left {
+  position: absolute;
+  left:0; 
+  top: 72px; 
+  bottom: 0;
+  width: 178px;
+} */
+
+/* #menu {
+  position: absolute;
+  left: 35px;
+  width: 110px; */
+  /* reset style */
+  /* visibility: visible;
+  opacity: 1;
+  color: '#FFFFFF';
+  font-size: 10px;
+} */
+
+
+/* .cd-main-content .content-wrapper { 
+margin-left: 110px; 
+}  */
+
+
+/* .main {
+  position: absolute;
+  left:178px; 
+  top:92px; 
+  width: 70%;
+  height: 850px;
+  background-color: rgb(240, 240, 240);
+} */
+
+/* .recents {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 93%;
+  background-color: white;
+  box-shadow: 10px 10px 5px rgb(177, 177, 177);
+} */
+
+/* .invocations {
+  position: absolute;
+  top: 150px;
+  left: 20px; */
+  /* right: 230px; */
+  /* width: 96%; */
+  /* background-color: white;
+  box-shadow: 10px 10px 5px rgb(177, 177, 177);
+} */
+
+
+/* .durations {
+  position: absolute;
+  top: 500px;
+  left: 20px; */
+  /* right: 230px; */
+  /* right: 20px;
+  bottom: 20px; */
+  /* width: 96%; */
+  /* background-color: white;
+  box-shadow: 10px 10px 5px rgb(177, 177, 177);
+} */
+
+/* .sectionTitle { */
+  /* text-shadow: 1px 1px 1px rgb(177, 177, 177); */
+  /* position: relative;
+  text-decoration-line: underline;
+  text-decoration-style: double;
+  left: 1em;
+} */
+
+/* .best {
+  background-color: white;
+  position: absolute;
+  top: 150em;
+  left: 800em;
+  right: 20em;
+  bottom: 270em;  
+  box-shadow: 10px 10px 5px rgb(177, 177, 177);
+}
+
+.worst {
+  background-color: white;
+  position: absolute;
+  top: 360px;
+  left: 800em;
+  right: 20em;
+  bottom: 20em; 
+  box-shadow: 10px 10px 5px rgb(177, 177, 177);
+} */
+
+#index {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, serif;
+}
+
+div.tooltip {	
+  position: absolute;			
+  text-align: center;			
+  width: 45px;					
+  height: 16px;					
+  padding: 2px;				
+  font: 12px sans-serif;		
+  background: rgba(199, 199, 199, 0.29);	
+  border: 0px;		
+  border-radius: 8px;			
+  pointer-events: none;			
+} 
+
+.dot {
+  fill:rgba(139, 185, 202);
+}
+
+.dot2 {
+  fill:rgba(255, 221, 136);
+}
+
+.dot3 {
+  fill:rgba(33, 129, 150,1);
+}
+
+.dot4 {
+  fill:rgba(250, 145, 31,1);
+}
+
+.dot5 {
+  fill:rgba(91, 33, 116,1);
+}
+
+.pathLine { 
+  stroke: rgba(139, 185, 202);
+  stroke-width: 3;
+  fill:  none;
+}
+
+.pathLine2 { 
+  stroke: rgba(255, 221, 136);
+  stroke-width: 3;
+  fill:  none;
+}
+
+.pathLine3 { 
+  stroke: rgba(33, 129, 150, 0.892);
+  stroke-width: 3;
+  fill:  none;
+}
+
+.pathLine4 { 
+  stroke: rgba(250, 145, 31, 0.892);
+  stroke-width: 3;
+  fill:  none;
+}
+
+.pathLine5 { 
+  stroke: rgba(91, 33, 116, 0.892);
+  stroke-width: 3;
+  fill:  none;
+}
+
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: grey;
+  stroke-width: 1;
+  shape-rendering: crispEdges;
+}
+
+.area {
+  fill:rgba(194, 226, 239);
+}
+.area2 {
+  fill:rgba(255, 231, 172);
+}
+.area3 {
+  fill:rgba(33, 129, 150, 0.29);
+}
+.area4 {
+  fill:rgba(250, 145, 31, 0.29);
+}
+.area5 {
+  fill:rgba(91, 33, 116, 0.29);
+}

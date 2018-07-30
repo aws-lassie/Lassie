@@ -1,0 +1,26 @@
+.stats {
+  margin: 0px 20px 20px 20px;
+  padding: 10px 10px 10px 10px;
+  text-align: center;
+  vertical-align: middle;
+  box-shadow: 5px 5px 5px rgb(66, 66, 66);
+  background-color: white;
+  font-size: 12px;
+}
+
+.stats-container {
+  margin-top: 20px;
+  height: 80px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  /* background-color: white; */
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+  border-bottom-color: rgb(255, 255, 255);
+}
+
+.number {
+  font-size: 20px;
+  padding-top: 5px;
+}
