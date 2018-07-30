@@ -1,0 +1,56 @@
+/* .left {
+  position: fixed;
+  display: block;
+  width: 13%;
+  height: 98vh;
+} */
+
+/* .bar {
+  width: 10px;
+  background-color: silver;
+  opacity: 0.8;
+  filter: alpha(opacity=50);
+} */
+
+.whiteSpace {
+  height: 30px;
+  background-color: white;
+  margin-bottom: 5px;
+}
+
+.dropdown {
+  float: right;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dropbtn {
+  border-radius: 12px;
+  background: linear-gradient( rgb(255, 255, 255),rgba(187, 218, 230));
+  color: black;
+}
+
+.name {
+  font-size: 18pt;
+  padding-bottom: 5px;
+}
+
+.flexBox {
+  display: flex;
+  align-content: space-around;
+}
+
+.main {
+  float: right;
+  width: 100%;
+  height: 98vh;
+  /* background-color: rgba(177, 177, 177, 0.514); */
+  background: linear-gradient( rgba(187, 218, 230), rgba(90, 142, 163));
+}
+
+#index {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, serif;
+}

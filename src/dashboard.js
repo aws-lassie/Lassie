@@ -3,7 +3,6 @@ import styles from './styles.css';
 import NavBar from "./nav-bar.js";
 import Recents from "./recents.js";
 import Stats from "./stats.js";
-import BestWorstFuncs from "./best-worst-funcs.js";
 import Invocations from "./invocations.js";
 import Durations from "./durations.js";
 
@@ -27,7 +26,6 @@ export class Dashboard extends React.Component {
         </div>
         <div class="main">
           < Recents functions={this.props.functions}/>
-          < BestWorstFuncs />
           < Invocations />
           < Durations />
         </div>

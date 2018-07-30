@@ -1,16 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import NavBar from "./nav-bar.js";
-import Recents from "./recents.js";
-import Stats from "./stats.js";
-import BestWorstFuncs from "./best-worst-funcs.js";
 import styles from "./styles.css";
-import Invocations from "./invocations.js";
-import Durations from "./durations.js";
 import AWS from "aws-sdk";
-import Dashboard from "./dashboard.js";
+// import Dashboard from "./dashboard.js";
+// import from the new dashboard folder 
+import Dashboard from "./dashboard/dashboard.js";
 
-console.log('INVOCATIONS',Invocations);
+// console.log('INVOCATIONS',Invocations);
 
 import {
   BrowserRouter as Router,
@@ -150,7 +146,7 @@ export class App extends React.Component {
           this.setState(readData(data));        
         }
       });
-    // }, 1000);
+    // }, 10000);
   }
 
 

@@ -1,0 +1,24 @@
+.recentsSectionTitle {
+  margin: 20px 0 0 20px;
+}
+
+.recents {
+  width: 34%;
+  box-shadow: 10px 10px 5px rgb(66, 66, 66);
+  background-color: white;
+  margin: 20px 20px 20px 20px;
+  /* margin-left: 30vw;
+  margin-bottom: 20px; */
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.functions {
+  font-size: 12px;
+  padding-bottom: 10px;
+}
+
